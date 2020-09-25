@@ -52,7 +52,6 @@ public class Main {
                 new Student("Lesya Test4", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.FEMALE, "6"),
                 new Student("Petro Test8", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.FEMALE, "7"),
                 new Student("Tesla Test9", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.MALE, "8"),
-//                new Student("Rocket Test10", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.MALE, "9"),
         };
 
         try {
@@ -62,8 +61,8 @@ public class Main {
             Student student10 = new Student("Lesya Test", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.FEMALE, "10");
             Student student11 = new Student("Lesya Test", new GregorianCalendar(1990, Calendar.JUNE, 5).getTime(), Gender.FEMALE, "11");
             // TODO: find why throws UnsupportedOperationException
-//            group1.addStudent(student10);
-//            group2.addStudent(student10);
+            group1.addStudent(student10);
+            group1.addStudent(student11);
 
             String filename1 = GroupService.serializeToFile(group1);
             String filename2 = GroupService.serializeToFile(group2);
@@ -76,7 +75,7 @@ public class Main {
 
 
 
-        } catch (GroupFulFilledException | IOException | ClassNotFoundException e) {
+        } catch (GroupFulFilledException | IOException | ClassNotFoundException | GroupDuplicateStudentException e) {
             e.printStackTrace();
         }
     }
