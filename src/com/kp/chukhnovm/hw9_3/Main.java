@@ -2,12 +2,22 @@ package com.kp.chukhnovm.hw9_3;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
         task3();
+        task4(6, new String[]{
+                "Sheldon",
+                "Leonard",
+                "Volovitc",
+                "Kutrapalli",
+                "Penny",
+        }); // [Sheldon, Leonard, Leonard, Volovitc, Volovitc, Kutrapalli, Kutrapalli, Penny, Penny, Sheldon, Sheldon]
+        task4(6, new String[]{}); // []
+        task4(0, new String[]{}); // []
     }
 
     public static void task3() {
@@ -39,5 +49,26 @@ public class Main {
         catch(IOException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void task4(int bottlesLeft, String[] peoples) {
+
+        List<String> queue = new ArrayList<>(Arrays.asList(peoples));
+
+        do {
+
+            if(queue.size() <= 0) break;
+
+            bottlesLeft--;
+            String str = queue.get(0);
+            queue.remove(0);
+
+            queue.add(str);
+            queue.add(str);
+
+        } while (bottlesLeft > 0);
+
+        System.out.println(bottlesLeft);
+        System.out.println(queue);
     }
 }
